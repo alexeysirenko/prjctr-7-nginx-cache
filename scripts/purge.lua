@@ -46,16 +46,13 @@ function cache_filename(cache_path, cache_levels, cache_key)
 end
 
 function purge(filename)
-    ngx.log(ngx.ERR, "Attempting to purge cache file: ", filename)
     if (file_exists(filename)) then
             os.remove(filename)
     end
 end
 
-ngx.log(ngx.ERR, "Attempting to purge")
 if ngx ~= nil then
     local cache_key = ngx.var.lua_purge_upstream .. ngx.var.request_uri
-    ngx.log(ngx.ERR, "Key", cache_key)
     local filename = cache_filename(ngx.var.lua_purge_path, ngx.var.lua_purge_levels, cache_key)
     purge(filename)
     -- ngx.say(filename)

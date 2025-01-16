@@ -43,24 +43,14 @@ Use this request to purge the cached version of a specific image file.
 #### Endpoint:
 
 ```
-PURGE /purge_cache/?file=<image_name>
+PURGE /<image_name>
 ```
 
 #### Example:
 
 ```bash
-curl -X PURGE "http://localhost:8080/purge_cache/?file=image1.jpg"
+curl -I -X PURGE http://localhost:8080/image1.jpg
 ```
-
-#### Parameters:
-
-- `file`: The name of the image file to purge from the cache (e.g., `image1.jpg`).
-
-#### Response:
-
-- **200 OK**: The cache for the specified image was purged successfully.
-- **400 Bad Request**: The request was invalid (e.g., `file` parameter missing).
-- **404 Not Found**: The image was not found in the cache.
 
 #### Sample Output:
 
@@ -87,7 +77,7 @@ Content-Type: text/plain
 2. **Purge the Cache**:
 
    ```bash
-   curl -X PURGE "http://localhost:8080/purge_cache/?file=image1.jpg"
+   curl -I -X PURGE http://localhost:8080/image1.jpg
    ```
 
    - Confirm the cache has been purged.

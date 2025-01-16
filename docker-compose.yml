@@ -9,7 +9,7 @@ services:
       - ./scripts/purge.lua:/etc/lua/purge.lua
       - ./cache:/var/cache/nginx
     ports:
-      - "80:80"
+      - "8080:80"
     networks:
       - app-network
     command: sh -c "nginx -g 'daemon off;'"
